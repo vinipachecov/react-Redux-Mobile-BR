@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 import Items from './Items';
 
@@ -21,11 +21,18 @@ export default class ListItems extends Component {
 
   // 3 render(){}
 
+  constructor(props) {
+    super(props);
+
+    //create our state variable listItems as an empty array
+    this.state = { listItems: [] };
+  }
+
   componentWillMount() {
     //http request
     axios.get('http://faus.com.br/recursos/c/dmairr/api/itens.html')
     .then((response) => {
-      console.log(response);
+      this.setState({ listItems: response.data });  
     })
     .catch(err => {
       console.log(`error =  + ${err}`);
@@ -34,12 +41,14 @@ export default class ListItems extends Component {
 
   render() {        
     return (        
-      <View>
-        <Items />
-        <Items />
-        <Items />        
-      </View>
+      <ScrollView style={{ backgroundColor: '#DDD' }}>   
+        { this.state.listItems.map((item) => {
+            return <Items key={item.titulo} item={item} />;
+        })}     
+      </ScrollView>
     );
   }
 }
+
+
 
