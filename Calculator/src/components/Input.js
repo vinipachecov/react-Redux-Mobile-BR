@@ -1,6 +1,20 @@
 import React from 'react';
-import { Text } from 'react-native'
+import { View } from 'react-native';
+import Number from './Number';
 
 export default props => (
-  <Text> Entrada </Text>  
+  <View style={styles.numberViewStyle}>
+    <Number oper={'operator'} />
+    <Number oper={'operand'} />
+  </View>
 );
+
+const styles = {
+  numberViewStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  numberInputStyle: {
+
+  }
+}
