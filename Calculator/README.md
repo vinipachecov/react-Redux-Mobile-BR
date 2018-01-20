@@ -18,3 +18,6 @@ npm start
 
 1. Scan the QR code with your mobile device in the Expo App
 2. Press 'a' once the packager has loaded the dependency graph to run in a simulator
+
+
+![alt text](https://github.com/vinipachecov/react-Redux-Mobile-BR/blob/master/Calculator/res/app%20tree.png)
