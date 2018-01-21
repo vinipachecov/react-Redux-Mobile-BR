@@ -5,7 +5,9 @@ import Visor from './Visor';
 
 const Result = (props) => {
   return (    
-    <Visor />    
+    <Visor 
+      result={props.result} 
+    />    
   );
 };
 
